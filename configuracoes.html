@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Gestor de Conformidade</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-grid">
+        <aside class="sidebar">
+            <h2>Menu Lateral</h2>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="empresas.html" class="nav-link">Empresas</a>
+                <a href="configuracoes.html" class="nav-link active">Configurações</a>
+            </nav>
+        </aside>
+
+        <main class="main-content" style="grid-column: 2 / 4;">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Gerenciar Tipos de Certidão (Schemas)</h3>
+                </div>
+                <div class="card-body">
+                    <form id="form-tipo-certidao" class="config-form">
+                        <input type="hidden" id="tipo-certidao-id">
+                        <input type="text" id="tipo-certidao-nome" placeholder="Nome do Tipo (Ex: Alvará Anual)" required>
+                        <input type="number" id="tipo-certidao-validade" placeholder="Validade Padrão (dias)">
+                        <textarea id="tipo-certidao-requisitos" placeholder="Pré-requisitos e anotações..."></textarea>
+                        <div class="form-actions">
+                            <button type="submit" id="btn-salvar-tipo-certidao">Salvar</button>
+                            <button type="button" id="btn-cancelar-edicao" class="btn-secondary" style="display:none;">Cancelar Edição</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <h4>Tipos Existentes</h4>
+                    <div id="lista-tipos-certidao">
+                        </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="configuracoes.js"></script>
+</body>
+</html>

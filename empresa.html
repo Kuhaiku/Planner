@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil da Empresa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-grid">
+        <aside class="sidebar">
+              <h2>Menu Lateral</h2>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link">Dashboard</a>
+                <a href="empresas.html" class="nav-link">Empresas</a>
+                <a href="configuracoes.html" class="nav-link">Configurações</a>
+            </nav>
+             </aside>
+
+        <main class="main-content" style="grid-column: 2 / 4;">
+            <div class="card">
+                <div class="card-header page-header">
+                    <a href="empresas.html" class="back-link">&larr; Voltar para a lista de Empresas</a>
+                    <h1 id="nome-empresa">Carregando...</h1>
+                    <p id="cnpj-empresa"></p>
+                </div>
+                <div class="card-body">
+                    <div class="profile-content">
+                        <div class="profile-section">
+                            <h3>Anotações</h3>
+                            <form id="form-anotacao" class="anotacao-form">
+                                <textarea id="conteudo-anotacao" placeholder="Adicionar uma nova anotação..." required></textarea>
+                                <button type="submit">Salvar Anotação</button>
+                            </form>
+                            <div id="anotacoes-list" class="anotacoes-container"></div>
+                        </div>
+
+                        <hr>
+
+                        <div class="profile-section">
+                            <h3>Gestão de Débitos</h3>
+                            <form id="form-debito" class="simple-form" style="display: block;">
+                                <input type="hidden" id="debito-id">
+                                <div class="form-row">
+                                    <input type="text" id="debito-nome" placeholder="Nome do Débito" required>
+                                    <input type="number" id="debito-valor" placeholder="Valor (Ex: 1500.50)" step="1" required>
+                                    <input type="date" id="debito-vencimento" required>
+                                    <button type="submit" id="btn-salvar-debito">Adicionar Débito</button>
+                                </div>
+                            </form>
+                            <div id="lista-debitos" class="lista-container">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="empresa.js"></script>
+</body>
+</html>

@@ -3,61 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Certidões</title>
+    <title>Dashboard de Conformidade</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Painel de Controle de Certidões</h1>
-        </header>
+    <div class="dashboard-grid">
+        <aside class="sidebar">
+            <h2>Menu Lateral</h2>
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-link active">Dashboard</a>
+                <a href="empresas.html" class="nav-link">Empresas</a>
+                <a href="configuracoes.html" class="nav-link">Configurações</a>
+            </nav>
+        </aside>
 
-        <div class="forms-container">
-            <div class="card form-card">
-                <h3>Cadastrar Nova Empresa</h3>
-                <form id="form-empresa">
-                    <input type="text" id="empresa-nome" placeholder="Nome da Empresa" required>
-                    <input type="text" id="empresa-cnpj" placeholder="CNPJ" required>
-                    <button type="submit">Salvar Empresa</button>
-                </form>
+        <main class="main-content">
+            <div class="forms-container-grid">
+                <div class="card">
+                    <div class="card-header"><h3>Cadastrar Empresa</h3></div>
+                    <form id="form-empresa" class="simple-form">
+                        <input type="text" id="empresa-nome" placeholder="Nome da Empresa" required>
+                        <input type="text" id="empresa-dono" placeholder="Nome do Dono/Responsável">
+                        <input type="text" id="empresa-cnpj" placeholder="CNPJ" required>
+                        <button type="submit">Salvar Empresa</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>Cadastrar Nova Certidão</h3></div>
+                    <form id="form-certidao" class="simple-form">
+                        <select id="empresa-select" required><option value="">Selecione a Empresa</option></select>
+                        <input type="date" id="certidao-data-inicio" required title="Data de Início/Emissão">
+                        <div class="toggle-container">
+                            <label for="avulsa-toggle">Avulsa?</label>
+                            <input type="checkbox" id="avulsa-toggle">
+                        </div>
+                        <div id="campos-tipo-existente" class="form-group">
+                            <select id="certidao-tipo-select"><option value="">Selecione o Tipo</option></select>
+                        </div>
+                        <div id="campos-certidao-avulsa" class="form-group" style="display:none;">
+                            <input type="text" id="certidao-nome-avulsa" placeholder="Nome da Certidão Avulsa">
+                            <input type="number" id="certidao-validade-avulsa" placeholder="Validade (dias)">
+                        </div>
+                        <button type="submit">Salvar Certidão</button>
+                    </form>
+                </div>
             </div>
-        
-            <div class="card form-card">
-                <h3>Cadastrar Nova Certidão</h3>
-                <form id="form-certidao">
-                    <select id="empresa-select" required>
-                        <option value="">Selecione a Empresa</option>
-                        </select>
-                    <input type="text" id="certidao-nome" placeholder="Nome da Certidão" required>
-                    <input type="date" id="certidao-data-inicio" required>
-                    <input type="number" id="certidao-validade" placeholder="Validade (em dias)" required>
-                    <button type="submit">Salvar Certidão</button>
-                </form>
-            </div>
-        </div>
-
-        <main>
             <div class="card">
-                <div class="card-header">
-                    <h2>Certidões Recorrentes</h2>
-                </div>
-                <div class="card-body">
-                    <table id="certidoes-table">
-                        <thead>
-                            <tr>
-                                <th>Status</th>
-                                <th>Certidão</th>
-                                <th>Empresa</th>
-                                <th>Vencimento</th>
-                                <th>Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            </tbody>
-                    </table>
-                </div>
+                <div class="card-header"><h3>Fluxo de Tarefas Prioritárias</h3></div>
+                <div class="card-body" id="fluxo-tarefas-list"></div>
             </div>
         </main>
+
+        <div class="right-panel">
+            <div class="card">
+                <div class="card-header"><h3>Saúde das Empresas</h3></div>
+                <div class="card-body" id="saude-empresas-list"></div>
+            </div>
+            <div class="card">
+                <div class="card-header"><h3>Urgências da Empresa</h3></div>
+                <div class="card-body" id="urgencias-list">
+                     <p class="placeholder">Clique em uma empresa na lista de "Saúde" para ver suas urgências.</p>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
