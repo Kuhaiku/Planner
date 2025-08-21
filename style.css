@@ -464,3 +464,132 @@ hr { border: none; border-top: 1px solid var(--cor-borda); margin: 30px 0; }
     border-radius: 5px;
     cursor: pointer;
 }
+/* style.css */
+
+/* --- VARIÁVEIS GLOBAIS DE ESTILO --- */
+:root {
+    --cor-fundo: #f4f7fa;
+    --cor-card: #ffffff;
+    --cor-texto-principal: #333;
+    --cor-texto-secundario: #777;
+    --cor-borda: #e9ecef;
+    --cor-vencido: #d9534f;
+    --cor-alerta: #f0ad4e;
+    --cor-sucesso: #5cb85c;
+    --cor-info: #0275d8;
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* --- ESTILOS GLOBAIS E RESETS --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
+    margin: 0;
+}
+
+/* --- ESTRUTURA E LAYOUT PRINCIPAL --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 240px 1fr 400px;
+    grid-template-rows: 1fr;
+    height: 100vh;
+    gap: 24px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+/* --- COMPONENTES GERAIS --- */
+.card { background-color: var(--cor-card); border-radius: 8px; box-shadow: var(--sombra-card); display: flex; flex-direction: column; }
+.card-header { padding: 16px 20px; border-bottom: 1px solid var(--cor-borda); }
+.card-header h3 { margin: 0; font-size: 1.1em; }
+.card-body { padding: 20px; overflow-y: auto; }
+.placeholder { color: var(--cor-texto-secundario); text-align: center; margin-top: 20px; }
+hr { border: none; border-top: 1px solid var(--cor-borda); margin: 30px 0; }
+
+
+/* --- NAVEGAÇÃO (MENU LATERAL) --- */
+.sidebar { background-color: var(--cor-card); padding: 20px; border-radius: 8px; box-shadow: var(--sombra-card); }
+.sidebar-nav { margin-top: 20px; display: flex; flex-direction: column; gap: 5px; }
+.nav-link { text-decoration: none; color: var(--cor-texto-secundario); padding: 10px; border-radius: 6px; transition: background-color 0.2s, color 0.2s; }
+.nav-link:hover { background-color: #f0f0f0; color: var(--cor-texto-principal); }
+.nav-link.active { background-color: var(--cor-info); color: white; font-weight: bold; }
+
+
+/* --- FORMULÁRIOS --- */
+.simple-form { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+.simple-form select, .simple-form input, .simple-form button { padding: 10px; border: 1px solid var(--cor-borda); border-radius: 6px; font-size: 1em; background-color: #fff; box-sizing: border-box; }
+.simple-form button { background-color: var(--cor-info); color: white; font-weight: bold; cursor: pointer; transition: background-color 0.2s; }
+.simple-form button:hover { background-color: #025aa5; }
+
+/* ESTILOS ATUALIZADOS/NOVOS PARA FORMULÁRIOS COM LABELS */
+.form-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 15px;
+    align-items: flex-end; /* Alinha os itens na base */
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    margin-bottom: 6px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #555;
+}
+.form-group button {
+    height: 40px; /* Altura fixa para alinhar com os inputs */
+}
+
+
+/* --- ESTILOS DO DASHBOARD (index.html) --- */
+.main-content, .right-panel { display: flex; flex-direction: column; gap: 24px; overflow-y: auto; }
+/* ... (demais estilos do dashboard sem alteração) ... */
+.task-item { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 15px; padding: 12px 0; border-bottom: 1px solid var(--cor-borda); }
+.task-info h4 { margin: 0 0 5px; font-size: 1em; }
+.task-info p { margin: 0; font-size: 0.9em; color: var(--cor-texto-secundario); }
+.task-due .days { font-weight: bold; font-size: 1.1em; }
+.days.vencido { color: var(--cor-vencido); }
+.days.alerta { color: var(--cor-alerta); }
+.task-actions button { padding: 4px 8px; font-size: 0.8em; border-radius: 4px; border: 1px solid #ccc; cursor: pointer; background-color: #f0f0f0; }
+.task-actions .btn-delete { background-color: var(--cor-vencido); color: white; border-color: var(--cor-vencido); }
+.saude-item-link { text-decoration: none; color: inherit; display: block; }
+.saude-item { display: flex; align-items: center; gap: 15px; padding: 12px; border-bottom: 1px solid var(--cor-borda); transition: background-color 0.2s; border-radius: 6px; }
+.saude-item.active, .saude-item:hover { background-color: #eef5ff; }
+.badge { color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.8em; font-weight: bold; }
+.badge-vencido { background-color: var(--cor-vencido); }
+.badge-alerta { background-color: var(--cor-alerta); }
+
+
+/* --- PÁGINA DE PERFIL (empresa.html) --- */
+.page-container { max-width: 900px; margin: 0 auto; padding: 24px; }
+.page-header { margin-bottom: 10px; padding-bottom: 20px; }
+.page-header h1 { margin: 10px 0 5px; }
+.page-header p { margin: 0; color: var(--cor-texto-secundario); }
+.back-link { color: var(--cor-info); text-decoration: none; font-weight: bold; margin-bottom: 15px; display: inline-block; }
+.profile-content { display: flex; flex-direction: column; gap: 20px; }
+
+.anotacao-form { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
+.anotacao-form textarea { width: 100%; box-sizing: border-box; min-height: 80px; padding: 10px; border-radius: 6px; border: 1px solid var(--cor-borda); font-family: inherit; font-size: 1em; }
+.anotacao-form button { align-self: flex-end; padding: 10px 20px; border-radius: 6px; border: none; background-color: var(--cor-info); color: white; font-weight: bold; cursor: pointer; }
+.anotacoes-container { display: flex; flex-direction: column; gap: 15px; }
+.anotacao-item { background-color: #f8f9fa; padding: 15px; border-radius: 6px; border: 1px solid var(--cor-borda); }
+.anotacao-header { display: flex; justify-content: space-between; margin-bottom: 10px; color: var(--cor-texto-secundario); font-size: 0.85em; }
+
+.debito-item { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 20px; padding: 15px; margin-top: 10px; border: 1px solid var(--cor-borda); border-left: 5px solid var(--cor-alerta); border-radius: 6px; }
+.debito-item.regularizado { border-left-color: var(--cor-sucesso); background-color: #f7fff7; }
+.debito-item.regularizado .debito-info, .debito-item.regularizado .debito-status { opacity: 0.6; }
+.debito-item.regularizado .debito-info h4 { text-decoration: line-through; }
+.debito-info h4 { margin: 0 0 5px; }
+.debito-info p { margin: 0; font-size: 0.9em; color: var(--cor-texto-secundario); }
+.debito-status { font-style: italic; color: var(--cor-texto-secundario); }
+.debito-actions { display: flex; gap: 10px; }
+.debito-actions button { padding: 8px 12px; border-radius: 5px; border: none; cursor: pointer; color: white; font-weight: bold; font-size: 0.9em;}
+.debito-actions .btn-regularizar { background-color: var(--cor-sucesso); }
+.debito-actions .btn-edit { background-color: var(--cor-alerta); }
+.debito-actions .btn-delete { background-color: var(--cor-vencido); }
+
+/* --- PÁGINA DE CONFIGURAÇÕES (configuracoes.html) --- */
+/* ... (estilos de configurações sem alteração) ... */
